@@ -16,9 +16,5 @@ class Ticket extends Model
     {
         return $this->belongsTo(Showtime::class);
     }
-
-    public function movie()
-    {
-        return $this->hasOneThrough(Movie::class, Showtime::class, 'id', 'id', 'showtime_id', 'movie_id');
-    }
 }
+    

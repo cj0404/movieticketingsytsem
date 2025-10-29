@@ -1,24 +1,38 @@
-@extends('layouts.app')
-
-@section('title','Showtimes')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Showtime</title>
+</head>
+<body>
+  @extends('layouts.app')
 
 @section('content')
-<h2>All Showtimes</h2>
+<h2>Showtimes</h2>
 <table class="table table-striped">
-  <thead>
-    <tr><th>Movie</th><th>Schedule</th><th>Hall</th><th>Tickets</th><th></th></tr>
-  </thead>
-  <tbody>
-    @foreach($showtimes as $st)
-      <tr>
-        <td>{{ $st->movie->title }}</td>
-        <td>{{ \Carbon\Carbon::parse($st->schedule)->format('M d, Y h:i A') }}</td>
-        <td>{{ $st->hall_number }}</td>
-        <td>{{ $st->tickets->count() }}</td>
-        <td><a href="{{ route('showtimes.show', $st->id) }}" class="btn btn-sm btn-primary">Details</a></td>
-      </tr>
-    @endforeach
-  </tbody>
+    <thead class="table-dark">
+        <tr>
+            <th>Movie</th>
+            <th>Schedule</th>
+            <th>Hall</th>
+            <th>Tickets Sold</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach($showtimes as $showtime)
+        <tr>
+            <td>{{ $showtime->movie->title }}</td>
+            <td>{{ $showtime->schedule }}</td>
+            <td>{{ $showtime->hall_number }}</td>
+            <td>{{ $showtime->tickets->count() }}</td>
+        </tr>
+        @endforeach
+    </tbody>
 </table>
-{{ $showtimes->links() }}
 @endsection
+
+  
+</body>
+</html>

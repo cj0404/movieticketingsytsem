@@ -11,14 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
+        
         Schema::create('movies', function (Blueprint $table) {
             $table->id();
             $table->string('title');
             $table->string('genre');
             $table->integer('duration');
-            $table->decimal('rating', 3, 1)->nullable(); 
+            $table->string('rating');
             $table->timestamps();
         });
+
     }
 
     /**

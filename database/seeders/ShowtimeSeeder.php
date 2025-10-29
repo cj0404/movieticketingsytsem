@@ -14,10 +14,7 @@ class ShowtimeSeeder extends Seeder
      */
     public function run(): void
     {
-        Movie::all()->each(function (Movie $movie) {
-            Showtime::factory(3)->create([
-                'movie_id' => $movie->id,
-            ]);
-        });
+        Showtime::factory(20)->create();
     }
 }
+

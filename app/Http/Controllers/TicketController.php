@@ -9,7 +9,7 @@ class TicketController extends Controller
 {
     public function index()
     {
-        $tickets = Ticket::with('showtime.movie')->latest()->paginate(20);
+        $tickets = Ticket::with('showtime.movie')->get();
         return view('tickets.index', compact('tickets'));
     }
 }

@@ -9,13 +9,8 @@ class ShowtimeController extends Controller
 {
     public function index()
     {
-        $showtimes = Showtime::with('movie','tickets')->orderBy('schedule')->paginate(15);
+        $showtimes = Showtime::with(['movie', 'tickets'])->get();
         return view('showtimes.index', compact('showtimes'));
     }
-
-    public function show($id)
-    {
-        $showtime = Showtime::with('movie','tickets')->findOrFail($id);
-        return view('showtimes.show', compact('showtime'));
-    }
 }
+

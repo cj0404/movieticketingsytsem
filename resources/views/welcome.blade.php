@@ -1,61 +1,22 @@
-@extends('layouts.app')
-
-@section('title','Welcome')
-
-@section('content')
-<div class="banner rounded mb-4" style="background-color:#222;">
-  <div class="container text-center">
-    <h1 class="display-4">Now Showing</h1>
-    <p class="lead">Grab your popcorn — cinematic adventures await.</p>
-  </div>
-</div>
-
-<div class="row">
-  @foreach($movies as $movie)
-    <div class="col-md-4 mb-3">
-      <div class="card card-movie">
-        <div class="card-body">
-          <h5 class="card-title">{{ $movie->title }}</h5>
-          <p class="card-text">
-            Genre: {{ $movie->genre }}<br>
-            Duration: {{ $movie->duration }} min<br>
-            Showtimes: {{ $movie->showtimes_count }}
-          </p>
-          <a href="{{ route('movies.show', $movie->id) }}" class="btn btn-primary">View</a>
-        </div>
-      </div>
-    </div>
-  @endforeach
-</div>
-@endsection
-@extends('layouts.app')
-
-@section('title','Welcome')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Welcome</title>
+</head>
+<body>
+  @extends('layouts.app')
 
 @section('content')
-<div class="banner rounded mb-4" style="background-color:#222;">
-  <div class="container text-center">
-    <h1 class="display-4">Now Showing</h1>
-    <p class="lead">Grab your popcorn — cinematic adventures await.</p>
-  </div>
+<div class="text-center">
+    <h1 class="display-4">🎬 Now Showing!</h1>
+    <p class="lead">Welcome to our Movie Theater Ticketing System</p>
 </div>
-
-<div class="row">
-    @foreach($movie as $movies)
-        <div class="col-md-4 mb-3">
-            <div class="card card-movie">
-                <div class="card-body">
-                    <h5 class="card-title">{{ $movie->title }}</h5>
-                    <p class="card-text">
-                        Genre: {{ $movie->genre }}<br>
-                        Duration: {{ $movie->duration }} min<br>
-                        Showtimes: {{ $movie->showtimes_count }}
-                    </p>
-                    <a href="{{ route('movies.show', $movie->id) }}" class="btn btn-primary">View</a>
-                </div>
-            </div>
-        </div>
-    @endforeach
-</div>
-
 @endsection
+
+
+  
+</body>
+</html>

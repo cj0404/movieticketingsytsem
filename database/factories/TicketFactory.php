@@ -3,6 +3,8 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\Ticket;
+use App\Models\Showtime;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Ticket>
@@ -15,16 +17,15 @@ class TicketFactory extends Factory
      * @return array<string, mixed>
      */
     
-    // protected $model = \App\Models\Ticket::class;
+    //  protected $model = Ticket::class;
 
-    public function definition()
+     public function definition(): array
     {
-        $rows = range('A', 'H');
-        $seat = $this->faker->randomElement($rows) . $this->faker->numberBetween(1,20);
         return [
-            'customer_name' => $this->faker->name,
-            'seat_number' => $seat,
-            'price' => $this->faker->randomFloat(2, 100, 400),
+            'showtime_id' => Showtime::factory(),
+            'customer_name' => $this->faker->name(),
+            'seat_number' => 'A' . $this->faker->numberBetween(1, 50),
         ];
     }
 }
+

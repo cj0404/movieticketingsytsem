@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('hall_number');
             $table->timestamps();
         });
+
     }
 
     /**

@@ -14,12 +14,7 @@ class TicketSeeder extends Seeder
      */
     public function run(): void
     {
-        //
-        Showtime::all()->each(function ($showtime) {
-            $count = rand(4, 8);
-            Ticket::factory($count)->create([
-                'showtime_id' => $showtime->id,
-            ]);
-        });
+        Ticket::factory(30)->create();
     }
+
 }

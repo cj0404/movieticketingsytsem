@@ -16,9 +16,9 @@ return new class extends Migration
             $table->foreignId('showtime_id')->constrained()->onDelete('cascade');
             $table->string('customer_name');
             $table->string('seat_number');
-            $table->decimal('price', 8, 2)->default(0);
             $table->timestamps();
         });
+
     }
 
     /**
